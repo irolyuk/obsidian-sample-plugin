@@ -1,15 +1,23 @@
 import { App, PluginSettingTab, Setting } from "obsidian";
 import type MyPlugin from "./main";
 
+export type GarlandTheme =
+	| "christmas"
+	| "gold"
+	| "neon"
+	| "sakura"
+	| "stars";
+
 export type GarlandMode =
 	| "random"
-	| "christmas"
 	| "rainbow"
 	| "wave"
 	| "pulse"
 	| "static";
 
 export interface MyPluginSettings {
+	theme: GarlandTheme;
+	mode: GarlandMode;
 	wireColor: string;
 	wireThickness: number;
 	wireGlow: number;
@@ -17,13 +25,14 @@ export interface MyPluginSettings {
 	bulbSize: number;
 	bulbGlowSize: number;
 	blinkInterval: number;
-	mode: GarlandMode;
 	hideDefaultNodes: boolean;
-	showWires: boolean;
 	wireBehindNodes: boolean;
+	showWires: boolean;
 }
 
 export const DEFAULT_SETTINGS: MyPluginSettings = {
+	theme: "christmas",
+	mode: "random",
 	wireColor: "#66ff66",
 	wireThickness: 2,
 	wireGlow: 1,
@@ -31,10 +40,9 @@ export const DEFAULT_SETTINGS: MyPluginSettings = {
 	bulbSize: 80,
 	bulbGlowSize: 120,
 	blinkInterval: 1000,
-	mode: "christmas",
 	hideDefaultNodes: false,
-	showWires: true,
 	wireBehindNodes: true,
+	showWires: true,
 };
 
 export class SampleSettingTab extends PluginSettingTab {
@@ -50,12 +58,29 @@ export class SampleSettingTab extends PluginSettingTab {
 		containerEl.empty();
 
 		new Setting(containerEl)
+			.setName("Theme")
+			.setDesc("Вигляд вузлів графа")
+			.addDropdown((dropdown) =>
+				dropdown
+					.addOption("christmas", "🎄 Christmas garland")
+					.addOption("gold", "✨ Golden lights")
+					.addOption("neon", "💜 Neon spheres")
+					.addOption("sakura", "🌸 Sakura flowers")
+					.addOption("stars", "⭐ Stars")
+					.setValue(this.plugin.settings.theme)
+					.onChange(async (value) => {
+						this.plugin.settings.theme = value as GarlandTheme;
+						await this.plugin.saveSettings();
+						this.plugin.refreshGraph(true);
+					})
+			);
+
+		new Setting(containerEl)
 			.setName("Animation mode")
-			.setDesc("Режим гірлянди")
+			.setDesc("Режим зміни кольорів")
 			.addDropdown((dropdown) =>
 				dropdown
 					.addOption("random", "Random")
-					.addOption("christmas", "Christmas")
 					.addOption("rainbow", "Rainbow")
 					.addOption("wave", "Wave")
 					.addOption("pulse", "Pulse")
@@ -65,6 +90,19 @@ export class SampleSettingTab extends PluginSettingTab {
 						this.plugin.settings.mode = value as GarlandMode;
 						await this.plugin.saveSettings();
 						this.plugin.refreshGraph(true);
+					})
+			);
+
+		new Setting(containerEl)
+			.setName("Show custom wires")
+			.setDesc("Показувати світні дроти")
+			.addToggle((toggle) =>
+				toggle
+					.setValue(this.plugin.settings.showWires)
+					.onChange(async (value) => {
+						this.plugin.settings.showWires = value;
+						await this.plugin.saveSettings();
+						this.plugin.refreshGraph(false);
 					})
 			);
 
@@ -127,8 +165,8 @@ export class SampleSettingTab extends PluginSettingTab {
 			);
 
 		new Setting(containerEl)
-			.setName("Bulb size")
-			.setDesc("Розмір лампочок")
+			.setName("Node size")
+			.setDesc("Розмір декоративних вузлів")
 			.addSlider((slider) =>
 				slider
 					.setLimits(20, 180, 5)
@@ -142,8 +180,8 @@ export class SampleSettingTab extends PluginSettingTab {
 			);
 
 		new Setting(containerEl)
-			.setName("Bulb glow size")
-			.setDesc("Розмір світіння лампочок")
+			.setName("Glow size")
+			.setDesc("Розмір світіння вузлів")
 			.addSlider((slider) =>
 				slider
 					.setLimits(40, 260, 5)
@@ -184,21 +222,8 @@ export class SampleSettingTab extends PluginSettingTab {
 			);
 
 		new Setting(containerEl)
-			.setName("Show custom wires")
-			.setDesc("Показувати світні дроти")
-			.addToggle((toggle) =>
-				toggle
-					.setValue(this.plugin.settings.showWires)
-					.onChange(async (value) => {
-						this.plugin.settings.showWires = value;
-						await this.plugin.saveSettings();
-						this.plugin.refreshGraph(false);
-					})
-			);
-
-		new Setting(containerEl)
 			.setName("Wire behind nodes")
-			.setDesc("Дроти позаду лампочок")
+			.setDesc("Дроти позаду декоративних вузлів")
 			.addToggle((toggle) =>
 				toggle
 					.setValue(this.plugin.settings.wireBehindNodes)
