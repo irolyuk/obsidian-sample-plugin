@@ -6,7 +6,17 @@ export type GarlandTheme =
 	| "gold"
 	| "neon"
 	| "sakura"
-	| "stars";
+	| "stars"
+	| "snow"
+	| "vines"
+	| "mushrooms"
+	| "planets"
+	| "crystals"
+	| "moon"
+	| "water"
+	| "butterflies"
+	| "energy"
+	| "pinkClouds";
 
 export type GarlandMode =
 	| "random"
@@ -67,6 +77,16 @@ export class SampleSettingTab extends PluginSettingTab {
 					.addOption("neon", "💜 Neon spheres")
 					.addOption("sakura", "🌸 Sakura flowers")
 					.addOption("stars", "⭐ Stars")
+					.addOption("snow", "❄️ Snow")
+					.addOption("vines", "🌿 Vines")
+					.addOption("mushrooms", "🍄 Mushrooms")
+					.addOption("planets", "🪐 Planets")
+					.addOption("crystals", "💎 Crystals")
+					.addOption("moon", "🌙 Moon")
+					.addOption("water", "💧 Water")
+					.addOption("butterflies", "🦋 Butterflies")
+					.addOption("energy", "⚡ Energy")
+					.addOption("pinkClouds", "☁️ Pink clouds")
 					.setValue(this.plugin.settings.theme)
 					.onChange(async (value) => {
 						this.plugin.settings.theme = value as GarlandTheme;
