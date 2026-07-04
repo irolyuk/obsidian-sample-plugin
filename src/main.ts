@@ -2,12 +2,12 @@ import { Notice, Plugin } from "obsidian";
 import {
 	DEFAULT_SETTINGS,
 	MyPluginSettings,
-	SampleSettingTab,
+	ChillightGraphSettingTab,
 } from "./settings";
 import { GraphService } from "./graph/GraphService";
 import { GarlandRenderer } from "./graph/GarlandRenderer";
 
-export default class MyPlugin extends Plugin {
+export default class ChillightGraphPlugin extends Plugin {
 	settings!: MyPluginSettings;
 
 	private graphService!: GraphService;
@@ -23,7 +23,7 @@ export default class MyPlugin extends Plugin {
 			new Notice("Chillight Graph refreshed");
 		});
 
-		this.addSettingTab(new SampleSettingTab(this.app, this));
+		this.addSettingTab(new ChillightGraphSettingTab(this.app, this));
 
 		this.refreshGraph(false);
 

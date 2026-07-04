@@ -1,5 +1,5 @@
 import { App, PluginSettingTab, Setting } from "obsidian";
-import type MyPlugin from "./main";
+import type ChillightGraphPlugin from "./main";
 
 export type GarlandTheme =
 	| "christmas"
@@ -54,10 +54,10 @@ export const DEFAULT_SETTINGS: MyPluginSettings = {
 	showWires: true,
 };
 
-export class SampleSettingTab extends PluginSettingTab {
-	plugin: MyPlugin;
+export class ChillightGraphSettingTab extends PluginSettingTab {
+	plugin: ChillightGraphPlugin;
 
-	constructor(app: App, plugin: MyPlugin) {
+	constructor(app: App, plugin: ChillightGraphPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -157,7 +157,6 @@ export class SampleSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(0.5, 10, 0.5)
 					.setValue(this.plugin.settings.wireThickness)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.wireThickness = value;
 						await this.plugin.saveSettings();
@@ -172,7 +171,6 @@ export class SampleSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(0, 3, 0.1)
 					.setValue(this.plugin.settings.wireGlow)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.wireGlow = value;
 						await this.plugin.saveSettings();
@@ -187,7 +185,6 @@ export class SampleSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(0, 120, 5)
 					.setValue(this.plugin.settings.wireSag)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.wireSag = value;
 						await this.plugin.saveSettings();
@@ -202,7 +199,6 @@ export class SampleSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(20, 180, 5)
 					.setValue(this.plugin.settings.bulbSize)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.bulbSize = value;
 						await this.plugin.saveSettings();
@@ -217,7 +213,6 @@ export class SampleSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(40, 260, 5)
 					.setValue(this.plugin.settings.bulbGlowSize)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.bulbGlowSize = value;
 						await this.plugin.saveSettings();
@@ -232,7 +227,6 @@ export class SampleSettingTab extends PluginSettingTab {
 				slider
 					.setLimits(300, 3000, 100)
 					.setValue(this.plugin.settings.blinkInterval)
-					.setDynamicTooltip()
 					.onChange(async (value) => {
 						this.plugin.settings.blinkInterval = value;
 						await this.plugin.saveSettings();

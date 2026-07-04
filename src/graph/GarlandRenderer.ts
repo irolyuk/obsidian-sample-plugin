@@ -33,7 +33,7 @@ export class GarlandRenderer {
 	public paintNodes(changeColor = false): void {
 		const renderer = this.graphView.renderer;
 		const nodes = renderer.nodes;
-		const PIXI = (globalThis as any).PIXI;
+		const PIXI = (window as any).PIXI;
 
 		if (!PIXI || !nodes) return;
 
@@ -44,9 +44,9 @@ export class GarlandRenderer {
 
 			if (node.text) {
 				const textColor = parseColor(this.settings.nodeTextColor);
-						
+
 				node.text.tint = textColor;
-						
+
 				if (node.text.style) {
 					node.text.style.fill = textColor;
 				}
@@ -67,7 +67,7 @@ export class GarlandRenderer {
 
 	public paintWires(): void {
 		const renderer = this.graphView.renderer;
-		const PIXI = (globalThis as any).PIXI;
+		const PIXI = (window as any).PIXI;
 
 		if (!PIXI || !renderer.links || !renderer.hanger) return;
 
