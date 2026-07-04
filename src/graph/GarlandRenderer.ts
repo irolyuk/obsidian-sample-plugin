@@ -42,7 +42,15 @@ export class GarlandRenderer {
 		nodes.forEach((node: any, index: number) => {
 			if (!node.circle) return;
 
-			node.circle.alpha = this.settings.hideDefaultNodes ? 0 : 1;
+			if (node.text) {
+				const textColor = parseColor(this.settings.nodeTextColor);
+						
+				node.text.tint = textColor;
+						
+				if (node.text.style) {
+					node.text.style.fill = textColor;
+				}
+			}
 
 			new GarlandLight(
 				PIXI,

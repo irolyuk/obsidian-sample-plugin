@@ -82,11 +82,11 @@ export class GarlandLight {
 		}
 
 		if (this.settings.mode === "pulse") {
-			return palette[index % palette.length]!;
+			return palette[Math.floor(tick / 8 + index) % palette.length]!;
 		}
 
 		if (this.settings.mode === "rainbow") {
-			return RAINBOW[g.__colorIndex % RAINBOW.length]!;
+			return RAINBOW[Math.floor(tick / 8 + index) % RAINBOW.length]!;
 		}
 
 		return palette[g.__colorIndex % palette.length]!;

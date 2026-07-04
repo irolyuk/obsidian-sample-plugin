@@ -27,6 +27,7 @@ export type GarlandMode =
 export interface MyPluginSettings {
 	theme: GarlandTheme;
 	mode: GarlandMode;
+	nodeTextColor: string;
 	wireColor: string;
 	wireThickness: number;
 	wireGlow: number;
@@ -34,7 +35,6 @@ export interface MyPluginSettings {
 	bulbSize: number;
 	bulbGlowSize: number;
 	blinkInterval: number;
-	hideDefaultNodes: boolean;
 	wireBehindNodes: boolean;
 	showWires: boolean;
 }
@@ -42,6 +42,7 @@ export interface MyPluginSettings {
 export const DEFAULT_SETTINGS: MyPluginSettings = {
 	theme: "christmas",
 	mode: "random",
+	nodeTextColor: "#ffffff",
 	wireColor: "#66ff66",
 	wireThickness: 2,
 	wireGlow: 1,
@@ -49,7 +50,6 @@ export const DEFAULT_SETTINGS: MyPluginSettings = {
 	bulbSize: 80,
 	bulbGlowSize: 120,
 	blinkInterval: 1000,
-	hideDefaultNodes: false,
 	wireBehindNodes: true,
 	showWires: true,
 };
@@ -119,6 +119,19 @@ export class SampleSettingTab extends PluginSettingTab {
 					.setValue(this.plugin.settings.showWires)
 					.onChange(async (value) => {
 						this.plugin.settings.showWires = value;
+						await this.plugin.saveSettings();
+						this.plugin.refreshGraph(false);
+					})
+			);
+
+		new Setting(containerEl)
+			.setName("Node text color")
+			.setDesc("Колір назв вузлів")
+			.addColorPicker((picker) =>
+				picker
+					.setValue(this.plugin.settings.nodeTextColor)
+					.onChange(async (value) => {
+						this.plugin.settings.nodeTextColor = value;
 						await this.plugin.saveSettings();
 						this.plugin.refreshGraph(false);
 					})
@@ -223,19 +236,6 @@ export class SampleSettingTab extends PluginSettingTab {
 					.onChange(async (value) => {
 						this.plugin.settings.blinkInterval = value;
 						await this.plugin.saveSettings();
-					})
-			);
-
-		new Setting(containerEl)
-			.setName("Hide default nodes")
-			.setDesc("Приховати стандартні вузли Obsidian")
-			.addToggle((toggle) =>
-				toggle
-					.setValue(this.plugin.settings.hideDefaultNodes)
-					.onChange(async (value) => {
-						this.plugin.settings.hideDefaultNodes = value;
-						await this.plugin.saveSettings();
-						this.plugin.refreshGraph(false);
 					})
 			);
 
