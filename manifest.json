@@ -1,6 +1,6 @@
 {
 	"id": "chillight-plugin",
-	"name": "Chillight Plugin",
+	"name": "Chillight",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
 	"description": "Nice garland style for graphs.",
