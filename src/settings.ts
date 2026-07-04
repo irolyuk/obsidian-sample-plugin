@@ -24,7 +24,7 @@ export type GarlandMode =
 	| "pulse"
 	| "static";
 
-export interface MyPluginSettings {
+export interface ChillightGraphSettings {
 	theme: GarlandTheme;
 	mode: GarlandMode;
 	nodeTextColor: string;
@@ -39,7 +39,7 @@ export interface MyPluginSettings {
 	showWires: boolean;
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
+export const DEFAULT_SETTINGS: ChillightGraphSettings = {
 	theme: "christmas",
 	mode: "random",
 	nodeTextColor: "#ffffff",

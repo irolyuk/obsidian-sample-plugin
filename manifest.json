@@ -1,8 +1,8 @@
 {
 	"id": "chillight-graph",
 	"name": "Chillight Graph",
-	"version": "1.0.2",
-	"minAppVersion": "1.0.2",
+	"version": "1.0.3",
+	"minAppVersion": "1.0.3",
 	"description": "Transforms Graph View into an animated themed graph with glowing nodes and garland-style wires.",
 	"author": "Ivan Roliuk",
 	"authorUrl": "https://github.com/irolyuk",

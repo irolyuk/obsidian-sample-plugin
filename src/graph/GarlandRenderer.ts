@@ -1,10 +1,10 @@
 import { GarlandLight } from "./GarlandLight";
-import { MyPluginSettings } from "../settings";
+import { ChillightGraphSettings } from "../settings";
 
 export class GarlandRenderer {
 	constructor(
 		private graphView: any,
-		private settings: MyPluginSettings
+		private settings: ChillightGraphSettings
 	) {}
 
 	public installAutoUpdate(): void {

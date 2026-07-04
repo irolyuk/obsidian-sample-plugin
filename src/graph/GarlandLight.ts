@@ -1,4 +1,4 @@
-import { MyPluginSettings } from "../settings";
+import { ChillightGraphSettings } from "../settings";
 import { getTheme } from "./themes/ThemeRegistry";
 
 const RAINBOW = [
@@ -15,7 +15,7 @@ export class GarlandLight {
 	constructor(
 		private PIXI: any,
 		private circle: any,
-		private settings: MyPluginSettings,
+		private settings: ChillightGraphSettings,
 		x: number,
 		y: number,
 		changeColor: boolean,

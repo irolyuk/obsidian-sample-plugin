@@ -1,14 +1,14 @@
 import { Notice, Plugin } from "obsidian";
 import {
 	DEFAULT_SETTINGS,
-	MyPluginSettings,
+	ChillightGraphSettings,
 	ChillightGraphSettingTab,
 } from "./settings";
 import { GraphService } from "./graph/GraphService";
 import { GarlandRenderer } from "./graph/GarlandRenderer";
 
 export default class ChillightGraphPlugin extends Plugin {
-	settings!: MyPluginSettings;
+	settings!: ChillightGraphSettings;
 
 	private graphService!: GraphService;
 	private lastBlink = 0;
@@ -67,7 +67,7 @@ export default class ChillightGraphPlugin extends Plugin {
 		this.settings = Object.assign(
 			{},
 			DEFAULT_SETTINGS,
-			(await this.loadData()) as Partial<MyPluginSettings>
+			(await this.loadData()) as Partial<ChillightGraphSettings>
 		);
 	}
 
