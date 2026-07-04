@@ -1,92 +1,216 @@
-# Obsidian Sample Plugin
+# Chillight Graph
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+<p align="center">
+  <img src="assets/preview.gif" width="100%">
+</p>
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+<p align="center">
+A beautiful animated Graph View plugin for Obsidian with glowing themed nodes, curved garland-style wires, customizable colors, and decorative visual effects.
+</p>
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
+<p align="center">
+  <img src="https://img.shields.io/badge/Obsidian-Plugin-7C3AED?style=for-the-badge&logo=obsidian">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Desktop-Only-success?style=for-the-badge">
+</p>
 
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open modal (simple)" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and outputs a Notice on click.
-- Registers a global interval which logs 'setInterval' to the console.
+<p align="center">
+  <a href="https://vanyasatanic.donatik.ua/">
+    <img src="https://img.shields.io/badge/Donate-❤️_Support_the_Project-ff69b4?style=for-the-badge">
+  </a>
+</p>
 
-## First time developing plugins?
+---
 
-Quick starting guide for new plugin devs:
+## ✨ Features
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `src/main.ts` to `main.js`.
-- Make changes to `src/main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+- 🎨 14 built-in visual themes
+- 🌈 Multiple animation modes
+- 💡 Glowing animated nodes
+- 🔌 Curved garland-style wires
+- 🎨 Custom wire color
+- 📏 Custom wire thickness
+- ✨ Custom wire glow
+- 🌊 Custom wire sag
+- 🔴 Custom node size
+- 💫 Custom node glow
+- 📝 Custom node text color
+- ⚡ Lightweight and fun
+- 🖥 Desktop only
 
-## Releasing new releases
+---
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+## 🎨 Themes
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+### 🎄 Christmas Garland
 
-## Adding your plugin to the community plugin list
+![](assets/theme-christmas-garland.png)
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+### 🌸 Sakura Flowers
 
-## How to use
+![](assets/theme-sakura-flowers.png)
 
-- Clone this repo.
-- Make sure your NodeJS is at least v18 (`node --version`).
-- `npm i` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+### ☁️ Pink Clouds
 
-## Manually installing the plugin
+![](assets/theme-pink-clouds.png)
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+### ✨ Golden Lights
 
-## Improve code quality with eslint
+![](assets/theme-golden-lights.png)
 
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code.
-- This project already has eslint preconfigured, you can invoke a check by running`npm run lint`
-- Together with a custom eslint [plugin](https://github.com/obsidianmd/eslint-plugin) for Obsidan specific code guidelines.
-- A GitHub action is preconfigured to automatically lint every commit on all branches.
+### 💜 Neon Spheres
 
-## Funding URL
+![](assets/theme-neon-spheres.png)
 
-You can include funding URLs where people who use your plugin can financially support it.
+### ❄️ Snow
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
+![](assets/theme-snow.png)
 
-```json
-{
-	"fundingUrl": "https://buymeacoffee.com"
-}
+### ⭐ Stars
+
+![](assets/theme-stars.png)
+
+### 🌿 Vines
+
+![](assets/theme-vines.png)
+
+### 🍄 Mushrooms
+
+![](assets/theme-mushrooms.png)
+
+### 🪐 Planets
+
+![](assets/theme-planets.png)
+
+### 🌙 Moon
+
+![](assets/theme-moon.png)
+
+### 💧 Water
+
+![](assets/theme-water.png)
+
+### 🦋 Butterflies
+
+![](assets/theme-butterflies.png)
+
+### ⚡ Energy
+
+![](assets/theme-energy.png)
+
+---
+
+## ⚙️ Settings
+
+### Appearance
+
+- Theme
+- Animation mode
+- Node size
+- Node glow
+- Node text color
+
+### Wires
+
+- Show / hide custom wires
+- Wire color
+- Wire thickness
+- Wire glow
+- Wire sag
+
+![](assets/settings.png)
+
+![](assets/styles.png)
+
+---
+
+## 🌈 Animation Modes
+
+- 🎲 Random
+- 🌊 Wave
+- 🌈 Rainbow
+- 💓 Pulse
+- ⏸ Static
+
+---
+
+## 📦 Installation
+
+### Community Plugins
+
+Coming soon.
+
+### Manual installation
+
+Download the latest release and copy these files into:
+
+```text
+Vault/.obsidian/plugins/chillight-graph/
 ```
 
-If you have multiple URLs, you can also do:
+Required files:
 
-```json
-{
-	"fundingUrl": {
-		"Buy Me a Coffee": "https://buymeacoffee.com",
-		"GitHub Sponsor": "https://github.com/sponsors",
-		"Patreon": "https://www.patreon.com/"
-	}
-}
+```text
+main.js
+manifest.json
+styles.css
 ```
 
-## API Documentation
+Then restart Obsidian and enable **Chillight Graph** in:
 
-See https://docs.obsidian.md
+```text
+Settings → Community Plugins
+```
+
+---
+
+## 🛠 Development
+
+```bash
+git clone https://github.com/irolyuk/chillight-graph.git
+cd chillight-graph
+npm install
+npm run dev
+```
+
+Production build:
+
+```bash
+npm run build
+```
+
+---
+
+## ❤️ Support Development
+
+If you like Chillight Graph and want to support future updates, you can donate here:
+
+<p align="center">
+  <a href="https://vanyasatanic.donatik.ua/">
+    <img src="https://img.shields.io/badge/Donate-❤️_Support_the_Project-ff69b4?style=for-the-badge">
+  </a>
+</p>
+
+---
+
+## 🚀 Roadmap
+
+- More themes
+- Theme presets
+- Import / export presets
+- Animated theme effects
+- More wire styles
+- Better glow rendering
+- Community Plugin release
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+<p align="center">
+Made with ❤️ for the Obsidian community.
+</p>

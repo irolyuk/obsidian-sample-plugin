@@ -1,11 +1,11 @@
 {
-	"id": "chillight-plugin",
-	"name": "Chillight",
+	"id": "chillight-graph",
+	"name": "Chillight Graph",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
-	"description": "Nice garland style for graphs.",
+	"description": "Transform Obsidian Graph View into an animated themed graph with glowing nodes and garland-style wires.",
 	"author": "Ivan Roliuk",
-	"authorUrl": "https://obsidian.md",
+	"authorUrl": "https://github.com/irolyuk",
 	"fundingUrl": "https://vanyasatanic.donatik.ua/",
-	"isDesktopOnly": false
+	"isDesktopOnly": true
 }
